@@ -1,3 +1,7 @@
+/**
+ * Elevator Control System - Main CSS Design
+ */
+
 :root {
     --floor-height: 60px;
     --elevator-width: 100px;
@@ -12,7 +16,7 @@
     --elevator-status-idle: #28a745;
     --elevator-status-moving: #ffc107;
     --elevator-status-emergency: #dc3545;
-    --elevator-status-maintenance: #17a2b8;
+    --elevator-status-maintenance: #17a2b8
 }
 
 .building-container {
@@ -20,14 +24,14 @@
     background-color: var(--building-bg);
     border: 1px solid #ddd;
     border-radius: 5px;
-    position: relative;
+    position: relative
 }
 
 .floor-labels {
     display: flex;
     flex-direction: column;
     width: 40px;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #ccc
 }
 
 .floor-label {
@@ -36,13 +40,13 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd
 }
 
 .floors-container {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1
 }
 
 .floor {
@@ -51,13 +55,13 @@
     display: flex;
     align-items: center;
     padding: 0 15px;
-    position: relative;
+    position: relative
 }
 
 .floor-button-container {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    margin-right: 20px
 }
 
 .floor-button {
@@ -71,61 +75,62 @@
     justify-content: center;
     margin: 2px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s
 }
 
 .floor-button:hover {
-    background-color: #dee2e6;
+    background-color: #dee2e6
 }
 
 .floor-button.active {
     background-color: var(--indicator-active);
-    color: white;
+    color: white
 }
 
 .direction-indicators {
     display: flex;
-    margin-left: auto;
+    flex-direction: column;
+    margin-left: auto
 }
 
 .direction-indicator {
     display: flex;
     align-items: center;
     margin-left: 15px;
-    position: relative;
+    position: relative
 }
 
 .elevator-label {
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 5px
 }
 
 .indicator {
     display: none;
     color: var(--indicator-active);
-    margin: 0 5px;
+    margin: 0 5px
 }
 
 .indicator.active {
     display: inline-block;
-    animation: blink 1s infinite;
+    animation: blink 1s infinite
 }
 
 @keyframes blink {
     0% {
-        opacity: 1;
+        opacity: 1
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.5
     }
     100% {
-        opacity: 1;
+        opacity: 1
     }
 }
 
 .elevators-container {
     display: flex;
-    margin-left: 10px;
+    margin-left: 10px
 }
 
 .elevator-shaft {
@@ -136,11 +141,11 @@
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
     margin: 0 5px;
-    height: calc(7 * var(--floor-height));
+    height: calc(7 * var(--floor-height))
 }
 
 #building-visualization {
-    margin-top: 20px;
+    margin-top: 20px
 }
 
 .elevator-shaft .elevator-label {
@@ -156,7 +161,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: bold
 }
 
 .elevator {
@@ -171,18 +176,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
 }
 
 #elevator-B {
-    bottom: calc(6 * var(--floor-height));
+    bottom: calc(6 * var(--floor-height))
 }
 
 .elevator-doors {
     width: 100%;
     height: 70%;
     position: relative;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .door {
@@ -191,25 +196,25 @@
     background-color: var(--door-color);
     position: absolute;
     top: 0;
-    transition: transform var(--door-transition) ease-in-out;
+    transition: transform var(--door-transition) ease-in-out
 }
 
 .left-door {
     left: 0;
-    transform: translateX(0);
+    transform: translateX(0)
 }
 
 .right-door {
     right: 0;
-    transform: translateX(0);
+    transform: translateX(0)
 }
 
 .elevator.doors-open .left-door {
-    transform: translateX(-100%);
+    transform: translateX(-100%)
 }
 
 .elevator.doors-open .right-door {
-    transform: translateX(100%);
+    transform: translateX(100%)
 }
 
 .elevator-display {
@@ -220,91 +225,91 @@
     align-items: center;
     background-color: #333;
     border-radius: 4px;
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
 .seven-segment {
     font-family: 'Digital-7', monospace;
     font-size: 18px;
     color: #ff0;
-    text-align: center;
+    text-align: center
 }
 
 .elevator-status {
     font-size: 10px;
     color: var(--elevator-status-idle);
     text-align: center;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 .elevator-status.MOVING_UP,
 .elevator-status.MOVING_DOWN {
-    color: var(--elevator-status-moving);
+    color: var(--elevator-status-moving)
 }
 
 .elevator-status.EMERGENCY {
-    color: var(--elevator-status-emergency);
+    color: var(--elevator-status-emergency)
 }
 
 .elevator-status.MAINTENANCE {
-    color: var(--elevator-status-maintenance);
+    color: var(--elevator-status-maintenance)
 }
 
 .elevator-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 5px
 }
 
 .elevator-floor-button {
-    width: 40px;
+    width: 40px
 }
 
 .elevator-floor-button.active {
     background-color: var(--indicator-active);
     color: white;
-    border-color: var(--indicator-active);
+    border-color: var(--indicator-active)
 }
 
 .event-log-container {
     max-height: 150px;
     overflow-y: auto;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 4px
 }
 
 #events-list li {
     padding: 3px 0;
-    border-bottom: 1px dotted #eee;
+    border-bottom: 1px dotted #eee
 }
 
 #events-list li:last-child {
-    border-bottom: none;
+    border-bottom: none
 }
 
 @media (max-width: 992px) {
     .building-container {
-        flex-direction: column;
+        flex-direction: column
     }
     .floor-labels {
-        flex-direction: row;
+        flex-direction: row-reverse;
         width: 100%;
         height: 40px;
         border-right: none;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #ccc
     }
     .floor-label {
         width: calc(100% / 7);
         height: 40px;
         border-right: 1px solid #ddd;
-        border-bottom: none;
+        border-bottom: none
     }
     .floor-label:last-child {
-        border-right: none;
+        border-right: none
     }
     .floors-container {
-        flex-direction: row;
-        height: var(--floor-height);
+        flex-direction: row-reverse;
+        height: var(--floor-height)
     }
     .floor {
         width: calc(100% / 7);
@@ -314,103 +319,103 @@
         justify-content: space-between;
         border-right: 1px solid #ddd;
         border-bottom: none;
-        padding: 10px 5px;
+        padding: 10px 5px
     }
     .floor:last-child {
-        border-right: none;
+        border-right: none
     }
     .floor-button-container {
         flex-direction: row;
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 10px
     }
     .direction-indicators {
-        margin-left: 0;
-        flex-direction: column;
+        margin-left: 0
     }
     .direction-indicator {
         margin-left: 0;
-        margin-bottom: 5px;
+        margin-bottom: 5px
     }
     .elevators-container {
         flex-direction: column;
         width: 100%;
-        height: 120px;
+        height: 140px;
+        gap: 10px;
         margin-top: 10px;
-        margin-left: 0;
+        margin-left: 0
     }
     .elevator-shaft {
         width: 100%;
         height: 60px;
-        margin: 5px 0;
+        margin: 5px 0
     }
     .elevator {
         width: var(--floor-height);
         height: 100%;
         transition: left var(--elevator-transition) ease-in-out;
         bottom: 0 !important;
-        transform: translateX(0);
+        transform: translateX(0)
     }
     #elevator-A {
-        left: 0;
+        left: 0
     }
     #elevator-B {
-        left: calc(100% - var(--floor-height));
+        left: calc(100% - var(--floor-height))
     }
     .elevator[data-floor="0"] {
-        left: 0;
+        left: 0
     }
     .elevator[data-floor="1"] {
-        left: calc(100% / 7);
+        left: calc(100% / 7)
     }
     .elevator[data-floor="2"] {
-        left: calc(2 * (100% / 7));
+        left: calc(2 * (100% / 7))
     }
     .elevator[data-floor="3"] {
-        left: calc(3 * (100% / 7));
+        left: calc(3 * (100% / 7))
     }
     .elevator[data-floor="4"] {
-        left: calc(4 * (100% / 7));
+        left: calc(4 * (100% / 7))
     }
     .elevator[data-floor="5"] {
-        left: calc(5 * (100% / 7));
+        left: calc(5 * (100% / 7))
     }
     .elevator[data-floor="6"] {
-        left: calc(6 * (100% / 7));
+        left: calc(6 * (100% / 7))
     }
     .elevator-doors {
         height: 100%;
-        width: 70%;
+        width: 70%
     }
     .door {
         width: 100%;
-        height: 50%;
+        height: 50%
     }
     .left-door {
         top: 0;
-        transform: translateY(0);
+        transform: translateY(0)
     }
     .right-door {
         bottom: 0;
-        transform: translateY(0);
+        transform: translateY(0)
     }
     .elevator.doors-open .left-door {
-        transform: translateY(-100%);
+        transform: translateY(-100%)
     }
     .elevator.doors-open .right-door {
-        transform: translateY(100%);
+        transform: translateY(100%)
     }
     .elevator-shaft .elevator-label {
         position: relative;
         top: 10px;
         z-index: 1;
-        left: -6px;
+        left: -6px
     }
     .seven-segment {
-        font-size: 13px;
+        font-size: 13px
     }
     .elevator-status {
-        font-size: 9px;
+        font-size: 9px
     }
 }
 
@@ -418,16 +423,16 @@
     .floor-button {
         width: 25px;
         height: 25px;
-        font-size: 12px;
+        font-size: 12px
     }
     .elevator-label {
-        font-size: 12px;
+        font-size: 12px
     }
     .seven-segment {
-        font-size: 12px;
+        font-size: 12px
     }
     .elevator-status {
-        font-size: 7px;
+        font-size: 7px
     }
 }
 
@@ -440,37 +445,37 @@
     background: rgba(255, 255, 255, 0.8);
     padding: 2px 4px;
     border-radius: 2px;
-    white-space: nowrap;
+    white-space: nowrap
 }
 
 .elevator[data-state="IDLE"] .elevator-status {
-    color: var(--elevator-status-idle);
+    color: var(--elevator-status-idle)
 }
 
 .elevator[data-state="MOVING_UP"] .elevator-status,
 .elevator[data-state="MOVING_DOWN"] .elevator-status {
-    color: var(--elevator-status-moving);
+    color: var(--elevator-status-moving)
 }
 
 .elevator[data-state="DOOR_OPENING"],
 .elevator[data-state="DOOR_CLOSING"],
 .elevator[data-state="LOADING"] {
-    color: var(--elevator-status-idle);
+    color: var(--elevator-status-idle)
 }
 
 .elevator[data-state="EMERGENCY"] .elevator-status {
     color: var(--elevator-status-emergency);
-    animation: blink 0.5s infinite;
+    animation: blink 0.5s infinite
 }
 
 .elevator[data-state="MAINTENANCE"] .elevator-status {
-    color: var(--elevator-status-maintenance);
+    color: var(--elevator-status-maintenance)
 }
 
 .elevator[data-state="OVERLOADED"] .elevator-status {
-    color: var(--elevator-status-emergency);
+    color: var(--elevator-status-emergency)
 }
 
 .elevator-door-animation {
-    transition: transform 1s ease-in-out;
+    transition: transform 1s ease-in-out
 }

@@ -66,6 +66,7 @@
 <body>
     <header class="container-fluid bg-primary text-white p-3">
         <h1 class="text-center">Elevator Control System</h1>
+        <p class="text-center">7-storey building with 2 elevators</p>
     </header>
 
     <main class="container mt-4">
@@ -74,7 +75,7 @@
                 <div class="card mb-4">
                     <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
                         <span>Building Visualization</span>
-                        <div>
+                        <div class="d-flex">
                             <button id="reset-system" class="btn btn-sm btn-warning"><i class="fas fa-sync-alt"></i> Reset</button>
                             <button id="toggle-debug" class="btn btn-sm btn-info ms-2"><i class="fas fa-bug"></i> Debug</button>
                         </div>
@@ -95,8 +96,8 @@
                                 <div class="floor" data-floor="6">
                                     <div class="floor-button-container">
                                         <button class="floor-button down-button" data-floor="6" data-direction="down">
-                                            <i class="fas fa-arrow-down"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -115,11 +116,11 @@
                                 <div class="floor" data-floor="5">
                                     <div class="floor-button-container">
                                         <button class="floor-button up-button" data-floor="5" data-direction="up">
-                                            <i class="fas fa-arrow-up"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
                                         <button class="floor-button down-button" data-floor="5" data-direction="down">
-                                            <i class="fas fa-arrow-down"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -138,11 +139,11 @@
                                 <div class="floor" data-floor="4">
                                     <div class="floor-button-container">
                                         <button class="floor-button up-button" data-floor="4" data-direction="up">
-                                            <i class="fas fa-arrow-up"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
                                         <button class="floor-button down-button" data-floor="4" data-direction="down">
-                                            <i class="fas fa-arrow-down"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -161,11 +162,11 @@
                                 <div class="floor" data-floor="3">
                                     <div class="floor-button-container">
                                         <button class="floor-button up-button" data-floor="3" data-direction="up">
-                                            <i class="fas fa-arrow-up"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
                                         <button class="floor-button down-button" data-floor="3" data-direction="down">
-                                            <i class="fas fa-arrow-down"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -184,11 +185,11 @@
                                 <div class="floor" data-floor="2">
                                     <div class="floor-button-container">
                                         <button class="floor-button up-button" data-floor="2" data-direction="up">
-                                            <i class="fas fa-arrow-up"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
                                         <button class="floor-button down-button" data-floor="2" data-direction="down">
-                                            <i class="fas fa-arrow-down"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -207,11 +208,11 @@
                                 <div class="floor" data-floor="1">
                                     <div class="floor-button-container">
                                         <button class="floor-button up-button" data-floor="1" data-direction="up">
-                                            <i class="fas fa-arrow-up"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
                                         <button class="floor-button down-button" data-floor="1" data-direction="down">
-                                            <i class="fas fa-arrow-down"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -230,8 +231,8 @@
                                 <div class="floor" data-floor="0">
                                     <div class="floor-button-container">
                                         <button class="floor-button up-button" data-floor="0" data-direction="up">
-                                            <i class="fas fa-arrow-up"></i>
-                                        </button>
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
                                     </div>
                                     <div class="direction-indicators">
                                         <div class="direction-indicator" data-elevator="A">
@@ -323,22 +324,22 @@
                             </div>
                             <div class="elevator-control-buttons mt-2 d-flex gap-2">
                                 <button class="btn btn-sm btn-primary door-open-button" data-elevator="A">
-                                    <i class="fas fa-door-open"></i> Open
-                                </button>
+                                        <i class="fas fa-door-open"></i> Open
+                                    </button>
                                 <button class="btn btn-sm btn-primary door-close-button" data-elevator="A">
-                                    <i class="fas fa-door-closed"></i> Close
-                                </button>
+                                        <i class="fas fa-door-closed"></i> Close
+                                    </button>
                                 <button class="btn btn-sm btn-success bell-button" data-elevator="A">
-                                    <i class="fas fa-bell"></i> Bell
-                                </button>
+                                        <i class="fas fa-bell"></i> Bell
+                                    </button>
                             </div>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-danger emergency-button" data-elevator="A">
-                                    <i class="fas fa-exclamation-triangle"></i> Emergency
-                                </button>
+                                        <i class="fas fa-exclamation-triangle"></i> Emergency
+                                    </button>
                                 <button class="btn btn-sm btn-warning maintenance-button" data-elevator="A">
-                                    <i class="fas fa-tools"></i> Maintenance
-                                </button>
+                                        <i class="fas fa-tools"></i> Maintenance
+                                    </button>
                             </div>
                         </div>
                         <hr class="my-3">
@@ -355,22 +356,22 @@
                             </div>
                             <div class="elevator-control-buttons mt-2 d-flex gap-2">
                                 <button class="btn btn-sm btn-primary door-open-button" data-elevator="A">
-                                    <i class="fas fa-door-open"></i> Open
-                                </button>
+                                        <i class="fas fa-door-open"></i> Open
+                                    </button>
                                 <button class="btn btn-sm btn-primary door-close-button" data-elevator="A">
-                                    <i class="fas fa-door-closed"></i> Close
-                                </button>
+                                        <i class="fas fa-door-closed"></i> Close
+                                    </button>
                                 <button class="btn btn-sm btn-success bell-button" data-elevator="A">
-                                    <i class="fas fa-bell"></i> Bell
-                                </button>
+                                        <i class="fas fa-bell"></i> Bell
+                                    </button>
                             </div>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-danger emergency-button" data-elevator="B">
-                                    <i class="fas fa-exclamation-triangle"></i> Emergency
-                                </button>
+                                        <i class="fas fa-exclamation-triangle"></i> Emergency
+                                    </button>
                                 <button class="btn btn-sm btn-warning maintenance-button" data-elevator="B">
-                                    <i class="fas fa-tools"></i> Maintenance
-                                </button>
+                                        <i class="fas fa-tools"></i> Maintenance
+                                    </button>
                             </div>
                         </div>
                     </div>
@@ -404,12 +405,12 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
 
-<!-- <script type="text/javascript" src="assets/js/utils/log.js" defer></script>
+<script type="text/javascript" src="assets/js/utils/log.js" defer></script>
 <script type="text/javascript" src="assets/js/utils/settings.js" defer></script>
 
-<script type="text/javascript" src="assets/js/models/Floor.js" defer></script>
-<script type="text/javascript" src="assets/js/models/Elevator.js" defer></script>
-<script type="text/javascript" src="assets/js/models/Building.js" defer></script>
+<script type="text/javascript" src="assets/js/classes/Floor.js" defer></script>
+<script type="text/javascript" src="assets/js/classes/Elevator.js" defer></script>
+<script type="text/javascript" src="assets/js/classes/Building.js" defer></script>
 
 <script type="text/javascript" src="assets/js/controllers/Display.js" defer></script>
 <script type="text/javascript" src="assets/js/controllers/ElevatorScheduler.js" defer></script>
@@ -417,10 +418,6 @@
 <script type="text/javascript" src="assets/js/controllers/EmergencyHandler.js" defer></script>
 <script type="text/javascript" src="assets/js/controllers/AnimationController.js" defer></script>
 
-<script type="text/javascript" src="assets/js/main.js" defer></script> -->
-
-<script type="text/javascript" id="current-year-script" defer>
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
+<script type="text/javascript" src="assets/js/main.js" defer></script>
 
 </html>

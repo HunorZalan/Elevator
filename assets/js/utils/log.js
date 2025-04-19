@@ -1,12 +1,14 @@
+/**
+ * General Logger management class
+ */
+
 class Logger {
     constructor(debugMode = false) {
         this.debugMode = debugMode;
         this._initToastr();
     }
 
-    _hasToastr() {
-        return typeof toastr !== 'undefined';
-    }
+    _hasToastr() { return typeof toastr !== 'undefined'; }
 
     _initToastr() {
         if (this._hasToastr()) {
@@ -26,42 +28,36 @@ class Logger {
     }
 
     _showNotification(type, message) {
-        if (this._hasToastr()) {
-            toastr[type](message);
-        } else {
-            alert(message);
-        }
+        if (this._hasToastr()) { toastr[type](message); } else { alert(message); }
     }
 
     log(message, options = { toast: false, console: true }) {
-        if (options.console) console.log(message);
-        if (options.toast) this._showNotification('info', message);
+        if (options.console) { console.log(message); }
+        if (options.toast) { this._showNotification('info', message); }
     }
 
     info(message, options = { toast: true, console: true }) {
-        if (options.console) console.info(message);
-        if (options.toast) this._showNotification('info', message);
+        if (options.console) { console.info(message); }
+        if (options.toast) { this._showNotification('info', message); }
     }
 
     success(message, options = { toast: true, console: false }) {
-        if (options.console) console.log('Success: ', message);
-        if (options.toast) this._showNotification('success', message);
+        if (options.console) { console.log('Success: ', message); }
+        if (options.toast) { this._showNotification('success', message); }
     }
 
     warn(message, options = { toast: true, console: true }) {
-        if (options.console) console.warn(message);
-        if (options.toast) this._showNotification('warning', message);
+        if (options.console) { console.warn(message); }
+        if (options.toast) { this._showNotification('warning', message); }
     }
 
     error(message, options = { toast: true, console: true }) {
-        if (options.console) console.error(message);
-        if (options.toast) this._showNotification('error', message);
+        if (options.console) { console.error(message); }
+        if (options.toast) { this._showNotification('error', message); }
     }
 
     debug(message) {
-        if (this.debugMode) {
-            console.log('Debug: ', message);
-        }
+        if (this.debugMode) { console.log('Debug: ', message); }
     }
 
     enableDebug() {
