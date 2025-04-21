@@ -11,6 +11,10 @@
     --elevator-bg: #d0d0d0;
     --shaft-bg: #e0e0e0;
     --door-color: #808080;
+    --body-bg: #fff;
+    --text-color: #212529;
+    --border-color: #ddd;
+    --card-bg: #fff;
     --door-open-delay: 0.5s;
     --indicator-active: #fd7e14;
     --elevator-status-idle: #28a745;
@@ -19,10 +23,34 @@
     --elevator-status-maintenance: #17a2b8
 }
 
+.dark-mode {
+    --building-bg: #343a40;
+    --elevator-bg: #555;
+    --shaft-bg: #444;
+    --door-color: #666;
+    --body-bg: #222;
+    --text-color: #f8f9fa;
+    --border-color: #495057;
+    --card-bg: #333
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease
+}
+
 .building-container {
     display: flex;
     background-color: var(--building-bg);
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
     border-radius: 5px;
     position: relative
 }
@@ -31,7 +59,7 @@
     display: flex;
     flex-direction: column;
     width: 40px;
-    border-right: 1px solid #ccc
+    border-right: 1px solid var(--border-color);
 }
 
 .floor-label {
@@ -40,7 +68,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid var(--border-color);
 }
 
 .floors-container {
@@ -51,7 +79,8 @@
 
 .floor {
     height: var(--floor-height);
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-color);
+    ;
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -138,14 +167,15 @@
     width: var(--elevator-width);
     background-color: var(--shaft-bg);
     position: relative;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
     margin: 0 5px;
     height: calc(7 * var(--floor-height))
 }
 
 #building-visualization {
-    margin-top: 20px
+    margin: 23px 0
 }
 
 .elevator-shaft .elevator-label {
@@ -271,20 +301,8 @@
     border-color: var(--indicator-active)
 }
 
-.event-log-container {
-    max-height: 150px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px
-}
-
-#events-list li {
-    padding: 3px 0;
-    border-bottom: 1px dotted #eee
-}
-
-#events-list li:last-child {
-    border-bottom: none
+.badge {
+    transition: background-color 0.3s ease
 }
 
 @media (max-width: 992px) {
@@ -296,12 +314,12 @@
         width: 100%;
         height: 40px;
         border-right: none;
-        border-bottom: 1px solid #ccc
+        border-bottom: 1px solid var(--border-color)
     }
     .floor-label {
         width: calc(100% / 7);
         height: 40px;
-        border-right: 1px solid #ddd;
+        border-right: 1px solid var(--border-color);
         border-bottom: none
     }
     .floor-label:last-child {
@@ -317,7 +335,7 @@
         min-height: 180px;
         flex-direction: column;
         justify-content: space-between;
-        border-right: 1px solid #ddd;
+        border-right: 1px solid var(--border-color);
         border-bottom: none;
         padding: 10px 5px
     }
@@ -436,18 +454,6 @@
     }
 }
 
-.debug-mode .elevator::after {
-    content: attr(data-debug);
-    position: absolute;
-    bottom: -20px;
-    font-size: 10px;
-    color: #333;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 2px 4px;
-    border-radius: 2px;
-    white-space: nowrap
-}
-
 .elevator[data-state="IDLE"] .elevator-status {
     color: var(--elevator-status-idle)
 }
@@ -459,7 +465,7 @@
 
 .elevator[data-state="DOOR_OPENING"],
 .elevator[data-state="DOOR_CLOSING"],
-.elevator[data-state="LOADING"] {
+.elevator[data-state="LOADING"] .elevator-status {
     color: var(--elevator-status-idle)
 }
 
@@ -476,6 +482,61 @@
     color: var(--elevator-status-emergency)
 }
 
-.elevator-door-animation {
-    transition: transform 1s ease-in-out
+.elevator-moving {
+    animation: slight-vibration 0.2s infinite
+}
+
+@keyframes slight-vibration {
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+    25% {
+        transform: translateX(-1px)
+    }
+    75% {
+        transform: translateX(1px)
+    }
+}
+
+.elevator-arrive-flash {
+    animation: flash 0.5s
+}
+
+@keyframes flash {
+    0%,
+    100% {
+        background-color: var(--elevator-bg)
+    }
+    50% {
+        background-color: var(--indicator-active)
+    }
+}
+
+.dark-mode h5,
+.dark-mode label,
+.dark-mode .floor-label,
+.dark-mode .elevator-label,
+.dark-mode .form-label {
+    color: #f8f9fa !important
+}
+
+.dark-mode .elevator-buttons .btn-outline-secondary {
+    color: #f8f9fa;
+    border-color: #6c757d
+}
+
+.dark-mode .elevator-buttons .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d
+}
+
+.dark-mode footer.bg-light {
+    background-color: #343a40 !important;
+    color: #f8f9fa
+}
+
+.dark-mode footer.bg-light p {
+    color: #f8f9fa
 }
