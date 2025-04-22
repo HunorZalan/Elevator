@@ -13,7 +13,6 @@ class Floor {
             this.hasUpButton = config.hasUpButton !== undefined ? config.hasUpButton : (this.number < config.maxFloor);
             this.hasDownButton = config.hasDownButton !== undefined ? config.hasDownButton : (this.number > config.minFloor);
             this.elevatorIndicators = {};
-            this.logger = window.logger || console;
             this._initDom();
         }
         /**
