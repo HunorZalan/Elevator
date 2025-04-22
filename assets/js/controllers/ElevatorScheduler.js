@@ -40,7 +40,7 @@ class ElevatorScheduler {
             const elevator = this.building.findClosestElevator(floor, direction);
             if (!elevator) {
                 this.pendingCalls.push({ floor, direction });
-                this.logger.warn(`No available elevator, added to pending calls: floor ${floor}, direction ${direction}`);
+                console.warn(`No available elevator, added to pending calls: floor ${floor}, direction ${direction}`);
                 return;
             }
 

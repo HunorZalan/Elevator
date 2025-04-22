@@ -70,11 +70,11 @@ class Building {
          */
     callElevator(floorNumber, direction) {
             if (floorNumber < 0 || floorNumber >= this.floorCount) {
-                this.logger.error(`Invalid floor number: ${floorNumber}`);
+                console.error(`Invalid floor number: ${floorNumber}`);
                 return false;
             }
             if (direction !== 'up' && direction !== 'down') {
-                this.logger.error(`Invalid direction: ${direction}`);
+                console.error(`Invalid direction: ${direction}`);
                 return false;
             }
             const elevatorsAtFloor = Object.values(this.elevators).filter(

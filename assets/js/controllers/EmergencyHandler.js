@@ -14,27 +14,26 @@ class EmergencyHandler {
          * Trigger emergency for an elevator
          */
     triggerEmergency(elevatorId) {
-        const elevator = this.building.getElevator(elevatorId);
-        if (!elevator) {
-            console.error(`Elevator ${elevatorId} not found`);
-            return false;
+            const elevator = this.building.getElevator(elevatorId);
+            if (!elevator) {
+                console.error(`Elevator ${elevatorId} not found`);
+                return false;
+            }
+            if (elevator.isInEmergency) {
+                return this.cancelEmergency(elevatorId);
+            }
+
+            elevator.setEmergency(true);
+            elevator.playSound('emergency');
+
+            $(`.emergency-button[data-elevator="${elevatorId}"]`).addClass('active');
+
+            console.warn(`Emergency triggered for elevator ${elevatorId}`);
+            return true;
         }
-        if (elevator.isInEmergency) {
-            return this.cancelEmergency(elevatorId);
-        }
-
-        elevator.setEmergency(true);
-        elevator.playSound('emergency');
-
-        $(`.emergency-button[data-elevator="${elevatorId}"]`).addClass('active');
-
-        console.warn(`Emergency triggered for elevator ${elevatorId}`);
-        return true;
-    }
-
-    /**
-     * Cancel emergency for an elevator
-     */
+        /**
+         * Cancel emergency for an elevator
+         */
     cancelEmergency(elevatorId) {
             const elevator = this.building.getElevator(elevatorId);
             if (!elevator) {
@@ -59,6 +58,5 @@ class EmergencyHandler {
         $('.emergency-button').removeClass('active');
 
         console.info('All emergency states reset');
-        return true;
     }
 }

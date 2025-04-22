@@ -18,11 +18,6 @@ class Elevator {
             this.nextDestination = null; // Next destination
             this.isInEmergency = false;
             this.events = {};
-            this.debugInfo = {
-                lastStateChange: Date.now(),
-                stateHistory: [],
-                moveCount: 0
-            };
         }
         // Getter methods
     getState() { return this.state; }
@@ -122,13 +117,6 @@ class Elevator {
     setState(newState) {
             console.log(`Elevator ${this.id} state change: ${this.state} -> ${newState}`);
 
-            this.debugInfo.lastStateChange = Date.now();
-            this.debugInfo.stateHistory.push({
-                from: this.state,
-                to: newState,
-                timestamp: Date.now()
-            });
-
             const oldState = this.state;
 
             this.state = newState;
@@ -139,11 +127,9 @@ class Elevator {
                     break;
                 case "MOVING_UP":
                     this.direction = "up";
-                    this.debugInfo.moveCount++;
                     break;
                 case "MOVING_DOWN":
                     this.direction = "down";
-                    this.debugInfo.moveCount++;
                     break;
                 case "LOADING":
                     this.doorsOpen = true;
@@ -256,8 +242,6 @@ class Elevator {
                     floor: this.currentFloor
                 });
             }, window.settings ? window.settings.getDoorAnimationTime() : 700);
-
-            return true;
         }
         /**
          * Close elevator doors
@@ -282,8 +266,6 @@ class Elevator {
                     floor: this.currentFloor
                 });
             }, window.settings ? window.settings.getDoorAnimationTime() : 700);
-
-            return true;
         }
         /**
          * Process next destination
@@ -317,8 +299,6 @@ class Elevator {
             this._triggerEvent('emergencyChanged', {
                 isEmergency
             });
-
-            return true;
         }
         /**
          * Plays a sound effect for elevator events
